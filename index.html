@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programación móvil · guía de estudio</title>
+  <meta name="description" content="Guía de estudio de programación móvil: control de versiones, persistencia de datos, sensores, multimedia, servicios y notificaciones, librerías y toolkits, depuración y seguridad.">
+  <meta name="theme-color" content="#0e1118">
+  <link rel="icon" href="img/hero.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="progress-bar" aria-hidden="true"><span id="scrollBar"></span></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><i></i>Móvil/dev</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#video">Video</a></li>
+      <li><a href="#versiones">Versiones</a></li>
+      <li><a href="#persistencia">Datos</a></li>
+      <li><a href="#sensores">Sensores</a></li>
+      <li><a href="#multimedia">Multimedia</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#librerias">Librerías</a></li>
+      <li><a href="#seguridad">Seguridad</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Guía de estudio · 7 temas</span>
+        <h1>Programación <em>móvil</em>, de la idea a la app.</h1>
+        <p class="lead">Desde guardar cambios con Git hasta leer el acelerómetro, mandar una notificación o cazar un bug en Logcat. Todo lo que pide el temario, explicado en un solo lugar y con ejemplos.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#video">▶ Ver el video</a>
+          <a class="btn ghost" href="#versiones">Empezar por el tema 1</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="img/hero.svg" alt="Ilustración de un teléfono con código, una gráfica de sensor, una base de datos y una notificación" width="520" height="620">
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="stats">
+        <div><b>7</b><span>temas del temario</span></div>
+        <div><b>31</b><span>puntos para repasar</span></div>
+        <div><b id="doneCount">0%</b><span>de tu temario marcado</span></div>
+        <div><b>Kotlin</b><span>en los ejemplos de código</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div>
+      <span>Control de versiones</span><span>Persistencia</span><span>Sensores</span><span>Multimedia</span>
+      <span>Servicios</span><span>Notificaciones</span><span>Librerías</span><span>Toolkits</span><span>Depuración</span><span>Seguridad</span>
+      <span>Control de versiones</span><span>Persistencia</span><span>Sensores</span><span>Multimedia</span>
+      <span>Servicios</span><span>Notificaciones</span><span>Librerías</span><span>Toolkits</span><span>Depuración</span><span>Seguridad</span>
+    </div>
+  </div>
+
+  <!-- VIDEO -->
+  <section class="video-sec" id="video">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Para arrancar</span>
+        <h2>Tu primera app en Android Studio</h2>
+        <p>Un tutorial paso a paso para ver cómo se ve el entorno de desarrollo móvil en la práctica: descargar el IDE, crear un proyecto y correr una app sencilla. Sirve de base para entender todos los temas de abajo.</p>
+      </div>
+      <div class="video-frame reveal">
+        <div class="video-ratio">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/BQaxPwZWboA"
+            title="Android Studio: cómo crear una app (para principiantes)"
+            loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+        <div class="video-cap">
+          <span>Video: «Android Studio: cómo crear una APP (para principiantes)» · canal MoureDev by Brais Moure</span>
+          <a href="https://www.youtube.com/watch?v=BQaxPwZWboA" target="_blank" rel="noopener">Abrir en YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMAS -->
+  <div class="topics">
+    <div class="wrap">
+
+      <!-- 1 · CONTROL DE VERSIONES -->
+      <article class="topic reveal" id="versiones" data-topic="versiones">
+        <div class="topic-index"><span class="num">01</span></div>
+        <div>
+          <h3>Control de versiones</h3>
+          <p class="intro">Un sistema de control de versiones (VCS) registra cada cambio hecho a los archivos de un proyecto, quién lo hizo y cuándo, de modo que siempre puedes volver a un estado anterior o trabajar en equipo sin pisarte el código.</p>
+
+          <div class="panel-grid">
+            <div class="card wide">
+              <h4>Tipos de sistemas</h4>
+              <ul>
+                <li><strong>Locales:</strong> guardan versiones en la misma computadora (por ejemplo RCS). Simples, pero sin trabajo en equipo.</li>
+                <li><strong>Centralizados (CVCS):</strong> un servidor central tiene la historia completa (SVN, CVS). Todos se conectan a él.</li>
+                <li><strong>Distribuidos (DVCS):</strong> cada persona clona el repositorio completo con toda su historia (Git, Mercurial).</li>
+              </ul>
+              <div class="pc">
+                <div class="pro"><b>VENTAJAS · DISTRIBUIDO</b>Trabajas sin conexión, ramas baratas y rápidas, cada clon es una copia de seguridad.</div>
+                <div class="con"><b>DESVENTAJAS · DISTRIBUIDO</b>Curva de aprendizaje más alta y archivos binarios grandes pesan en el repositorio.</div>
+                <div class="pro"><b>VENTAJAS · CENTRALIZADO</b>Modelo fácil de entender, control de acceso y bloqueo de archivos sencillo.</div>
+                <div class="con"><b>DESVENTAJAS · CENTRALIZADO</b>Si cae el servidor nadie puede guardar cambios; ramas más lentas y costosas.</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4>Cómo funciona Git</h4>
+              <ul class="steps">
+                <li><strong>Directorio de trabajo:</strong> editas tus archivos.</li>
+                <li><strong>Área de preparación (staging):</strong> eliges qué cambios entrarán con <code class="inline">git add</code>.</li>
+                <li><strong>Repositorio:</strong> <code class="inline">git commit</code> guarda una instantánea con mensaje.</li>
+                <li><strong>Remoto:</strong> <code class="inline">git push</code> la comparte en GitHub o GitLab.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Rastreo y gestión de cambios</h4>
+              <ul>
+                <li><code class="inline">git log</code> y <code class="inline">git diff</code> muestran qué cambió.</li>
+                <li><code class="inline">git blame</code> indica quién tocó cada línea.</li>
+                <li>Las <strong>ramas</strong> aíslan funciones nuevas; el <strong>merge</strong> o <strong>pull request</strong> las integra con revisión.</li>
+                <li>Las <strong>etiquetas</strong> marcan versiones publicadas (<code class="inline">v1.4.0</code>).</li>
+              </ul>
+            </div>
+
+            <div class="card wide">
+              <h4>Ejemplo: flujo con una rama</h4>
+              <div class="code-title"><span>terminal</span><span>bash</span></div>
+<pre><span class="c"># crear una rama para la nueva pantalla de login</span>
+git switch -c feature/login
+<span class="c"># ...editar archivos en Android Studio...</span>
+git add app/src/main/java/.../LoginActivity.kt
+git commit -m <span class="s">"Agrega pantalla de login"</span>
+git push -u origin feature/login
+<span class="c"># abrir un Pull Request, revisar y fusionar a main</span>
+git switch main &amp;&amp; git pull
+git merge feature/login</pre>
+            </div>
+
+            <details class="card wide syllabus" data-group="versiones">
+              <summary><span>Temario a repasar <span class="count"></span></span></summary>
+              <ul class="checks">
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Definición de control de versiones</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Cuáles son (explicar cada uno)</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Características, ventajas y desventajas de cada una</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Explica su funcionamiento</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Cómo se usa el control de versiones en el rastreo y gestión de cambios</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Ejemplos</span></label></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 · PERSISTENCIA -->
+      <article class="topic reveal" id="persistencia" data-topic="persistencia">
+        <div class="topic-index"><span class="num">02</span></div>
+        <div>
+          <h3>Persistencia y acceso a datos</h3>
+          <p class="intro">Persistir es guardar información para que sobreviva al cierre de la app o al reinicio del teléfono. Según el tipo de dato y quién debe verlo, se elige entre archivos, preferencias, base de datos local o un servicio remoto.</p>
+
+          <div class="panel-grid">
+            <div class="card">
+              <h4>Formas de persistencia</h4>
+              <p><strong>Archivos.</strong> Almacenamiento interno (privado de la app) o externo (compartido). Ideal para imágenes, PDF, JSON o registros.</p>
+              <p><strong>Preferencias.</strong> Pares clave–valor con SharedPreferences o DataStore: ajustes, sesión, tema.</p>
+              <p><strong>Base de datos local.</strong> SQLite (a través de Room) para datos estructurados y consultas.</p>
+              <p><strong>Remota vía servicios web.</strong> API REST o Firebase; los datos viven en un servidor y se sincronizan.</p>
+            </div>
+
+            <div class="card">
+              <h4>Qué se guarda en cada una</h4>
+              <ul>
+                <li><span class="tag">archivos</span> binarios, multimedia, texto, JSON.</li>
+                <li><span class="tag">preferencias</span> booleanos, números, cadenas, conjuntos pequeños.</li>
+                <li><span class="tag">SQLite / Room</span> tablas relacionadas: usuarios, pedidos, mensajes.</li>
+                <li><span class="tag">remoto</span> datos compartidos entre usuarios y dispositivos.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Mecanismos de acceso</h4>
+              <ul>
+                <li><strong>Biblioteca de clases</strong> del SDK: <code class="inline">File</code>, <code class="inline">SharedPreferences</code>, <code class="inline">ContentResolver</code>.</li>
+                <li><strong>Clases SQLite:</strong> <code class="inline">SQLiteOpenHelper</code> y <code class="inline">SQLiteDatabase</code> con SQL escrito a mano.</li>
+                <li><strong>Mapeo objeto-relacional (ORM):</strong> Room convierte clases Kotlin en tablas y ofrece consultas verificadas al compilar.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Autenticación y servicios web</h4>
+              <ul class="steps">
+                <li>El usuario envía credenciales por HTTPS.</li>
+                <li>El servidor devuelve un <strong>token</strong> (JWT u OAuth 2.0).</li>
+                <li>La app lo guarda de forma segura y lo manda en el encabezado <code class="inline">Authorization</code>.</li>
+                <li>Con Retrofit se consume el JSON y se convierte a objetos.</li>
+              </ul>
+            </div>
+
+            <div class="card wide">
+              <h4>Ejemplo: tabla con Room</h4>
+              <div class="code-title"><span>Tarea.kt</span><span>kotlin</span></div>
+<pre><span class="k">@Entity</span>(tableName = <span class="s">"tareas"</span>)
+<span class="k">data class</span> <span class="f">Tarea</span>(
+    <span class="k">@PrimaryKey</span>(autoGenerate = <span class="k">true</span>) <span class="k">val</span> id: Int = 0,
+    <span class="k">val</span> titulo: String,
+    <span class="k">val</span> hecha: Boolean = <span class="k">false</span>
+)
+
+<span class="k">@Dao</span>
+<span class="k">interface</span> <span class="f">TareaDao</span> {
+    <span class="k">@Insert</span>  <span class="k">suspend fun</span> <span class="f">agregar</span>(t: Tarea)
+    <span class="k">@Query</span>(<span class="s">"SELECT * FROM tareas WHERE hecha = 0"</span>)
+    <span class="k">fun</span> <span class="f">pendientes</span>(): Flow&lt;List&lt;Tarea&gt;&gt;
+}</pre>
+            </div>
+
+            <details class="card wide syllabus" data-group="persistencia">
+              <summary><span>Temario a repasar <span class="count"></span></span></summary>
+              <ul class="checks">
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Definición</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Características</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Formas de persistencia en dispositivos móviles: archivos, bases de datos locales y remotas mediante servicios web (explicar cada una)</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Tipos de datos almacenables en función de las formas de persistencia</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Mecanismos de control de acceso a medios persistentes: biblioteca de clases, clases de SQLite y mapeo relacional de objetos</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Proceso de autenticación y consumo de servicios web en aplicaciones móviles</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Ejemplos</span></label></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 · SENSORES -->
+      <article class="topic reveal" id="sensores" data-topic="sensores">
+        <div class="topic-index"><span class="num">03</span></div>
+        <div>
+          <h3>Gestión de sensores</h3>
+          <p class="intro">Los sensores son componentes de hardware que miden el entorno o el movimiento del teléfono y entregan esos valores a la app. Con ellos una aplicación puede contar pasos, girar el mapa, ajustar el brillo o detectar una caída.</p>
+
+          <div class="panel-grid">
+            <div class="card wide">
+              <h4>Tipos de sensores en dispositivos móviles</h4>
+              <p><span class="tag">Movimiento</span> acelerómetro, giroscopio, vector de rotación, contador de pasos.</p>
+              <p><span class="tag">Entorno</span> luz ambiental, presión (barómetro), temperatura, humedad.</p>
+              <p><span class="tag">Posición</span> magnetómetro (brújula), proximidad y GPS.</p>
+            </div>
+
+            <div class="card">
+              <h4>Proceso de gestión</h4>
+              <ul class="steps">
+                <li><strong>Habilitación:</strong> obtener <code class="inline">SensorManager</code> y verificar que el sensor exista (y pedir permiso si es sensible).</li>
+                <li><strong>Obtención:</strong> registrar un <em>listener</em> con la frecuencia de muestreo deseada.</li>
+                <li><strong>Procesamiento:</strong> recibir los valores, filtrarlos (por ejemplo, filtro paso-bajo) y actuar.</li>
+                <li><strong>Liberación:</strong> dar de baja el listener al pausar la app para ahorrar batería.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Buenas prácticas</h4>
+              <ul>
+                <li>Registrar en <code class="inline">onResume()</code> y liberar en <code class="inline">onPause()</code>.</li>
+                <li>Usar la frecuencia más baja que resuelva el caso.</li>
+                <li>Comprobar siempre si <code class="inline">getDefaultSensor()</code> devuelve <code class="inline">null</code>: no todos los equipos tienen todos los sensores.</li>
+              </ul>
+            </div>
+
+            <div class="card wide">
+              <h4>Ejemplo: leer el acelerómetro</h4>
+              <div class="code-title"><span>MainActivity.kt</span><span>kotlin</span></div>
+<pre><span class="k">class</span> <span class="f">MainActivity</span> : AppCompatActivity(), SensorEventListener {
+    <span class="k">private lateinit var</span> sm: SensorManager
+    <span class="k">private var</span> acel: Sensor? = <span class="k">null</span>
+
+    <span class="k">override fun</span> <span class="f">onCreate</span>(b: Bundle?) {
+        <span class="k">super</span>.onCreate(b)
+        sm = getSystemService(SENSOR_SERVICE) <span class="k">as</span> SensorManager
+        acel = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+    }
+    <span class="k">override fun</span> <span class="f">onResume</span>() {
+        <span class="k">super</span>.onResume()
+        acel?.let { sm.registerListener(<span class="k">this</span>, it, SensorManager.SENSOR_DELAY_UI) }
+    }
+    <span class="k">override fun</span> <span class="f">onPause</span>() { <span class="k">super</span>.onPause(); sm.unregisterListener(<span class="k">this</span>) }
+
+    <span class="k">override fun</span> <span class="f">onSensorChanged</span>(e: SensorEvent) {
+        <span class="k">val</span> (x, y, z) = e.values
+        <span class="c">// procesar: filtrar, calcular magnitud, detectar sacudida...</span>
+    }
+    <span class="k">override fun</span> <span class="f">onAccuracyChanged</span>(s: Sensor?, a: Int) {}
+}</pre>
+            </div>
+
+            <details class="card wide syllabus" data-group="sensores">
+              <summary><span>Temario a repasar <span class="count"></span></span></summary>
+              <ul class="checks">
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Definición de sensores</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Tipos de sensores en dispositivos móviles</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Proceso de gestión de sensores: habilitación, obtención y procesamiento de información</span></label></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 · MULTIMEDIA -->
+      <article class="topic reveal" id="multimedia" data-topic="multimedia">
+        <div class="topic-index"><span class="num">04</span></div>
+        <div>
+          <h3>Uso de recursos multimedia</h3>
+          <p class="intro">Los recursos multimedia son los contenidos visuales y sonoros de una app: imágenes, audio, video y animaciones. Se almacenan dentro del proyecto o se descargan, y se muestran con componentes especializados.</p>
+
+          <div class="panel-grid">
+            <div class="card">
+              <h4>Tipos aplicables</h4>
+              <ul>
+                <li><strong>Imágenes:</strong> PNG, JPG, WebP y vectores (VectorDrawable, SVG).</li>
+                <li><strong>Audio:</strong> efectos cortos y música (MP3, OGG, AAC).</li>
+                <li><strong>Video:</strong> clips locales o en streaming (MP4, HLS).</li>
+                <li><strong>Animaciones:</strong> de propiedades, de cuadros, Lottie.</li>
+                <li><strong>Elementos visuales dinámicos:</strong> dibujo con <code class="inline">Canvas</code>, gráficos y transiciones.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Estructura del proyecto</h4>
+<pre>app/src/main/
+├─ res/
+│  ├─ drawable/   <span class="c"># imágenes y vectores</span>
+│  ├─ mipmap/     <span class="c"># íconos de la app</span>
+│  ├─ raw/        <span class="c"># audio y video locales</span>
+│  ├─ anim/       <span class="c"># animaciones XML</span>
+│  └─ font/       <span class="c"># tipografías</span>
+└─ assets/        <span class="c"># archivos sin procesar</span></pre>
+            </div>
+
+            <div class="card wide">
+              <h4>Componentes de software</h4>
+              <p><span class="tag">ImageView</span><span class="tag">Glide / Coil</span> mostrar y cargar imágenes con caché.</p>
+              <p><span class="tag">MediaPlayer</span><span class="tag">SoundPool</span> reproducir música y efectos de sonido.</p>
+              <p><span class="tag">VideoView</span><span class="tag">Media3 / ExoPlayer</span> reproducir video local o en streaming.</p>
+              <p><span class="tag">ObjectAnimator</span><span class="tag">Lottie</span><span class="tag">Canvas</span> animar y dibujar elementos dinámicos.</p>
+            </div>
+
+            <div class="card wide">
+              <h4>Ejemplo: reproducir un sonido de res/raw</h4>
+              <div class="code-title"><span>Sonido.kt</span><span>kotlin</span></div>
+<pre><span class="k">val</span> player = MediaPlayer.create(<span class="k">this</span>, R.raw.click)
+player.start()
+player.setOnCompletionListener { it.release() }  <span class="c">// liberar memoria al terminar</span></pre>
+            </div>
+
+            <details class="card wide syllabus" data-group="multimedia">
+              <summary><span>Temario a repasar <span class="count"></span></span></summary>
+              <ul class="checks">
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Definición</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Tipos de recursos multimedia aplicables a la programación móvil: imágenes, audio, video, animaciones y elementos visuales dinámicos</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Elementos de la estructura de proyectos donde se almacenan los recursos multimedia</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Componentes de software en el uso de recursos multimedia de aplicaciones móviles</span></label></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 · SERVICIOS Y NOTIFICACIONES -->
+      <article class="topic reveal" id="servicios" data-topic="servicios">
+        <div class="topic-index"><span class="num">05</span></div>
+        <div>
+          <h3>Servicios y notificaciones</h3>
+          <p class="intro">Los servicios permiten que la app haga trabajo sin pantalla visible, y las notificaciones avisan al usuario de eventos importantes aunque la app esté cerrada. Juntos mantienen viva la experiencia fuera de la pantalla principal.</p>
+
+          <div class="panel-grid">
+            <div class="card">
+              <h4>Tareas en segundo plano</h4>
+              <p>Son trabajos que se ejecutan sin interfaz: sincronizar datos, subir fotos, descargar archivos o reproducir música.</p>
+              <ul>
+                <li><strong>Corrutinas / hilos:</strong> trabajo corto mientras la app está abierta.</li>
+                <li><strong>WorkManager:</strong> tareas diferibles y garantizadas, aun si se reinicia el equipo.</li>
+                <li><strong>Foreground Service:</strong> trabajo continuo y visible (música, navegación).</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Tratamiento de notificaciones</h4>
+              <ul class="steps">
+                <li>Crear un <strong>canal</strong> de notificación (Android 8+).</li>
+                <li>Pedir el permiso <code class="inline">POST_NOTIFICATIONS</code> (Android 13+).</li>
+                <li>Construir el mensaje con <code class="inline">NotificationCompat</code>.</li>
+                <li>Mostrarlo con <code class="inline">NotificationManagerCompat</code> y definir qué abre al tocarlo.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Proveedores de contenido</h4>
+              <p>Un <code class="inline">ContentProvider</code> expone datos de una app a otras mediante URIs y los accede un <code class="inline">ContentResolver</code>. Así funcionan los contactos, el calendario o la galería.</p>
+            </div>
+
+            <div class="card">
+              <h4>Servicios de cómputo en la nube</h4>
+              <ul>
+                <li><strong>Firebase:</strong> autenticación, Firestore, almacenamiento y mensajería push (FCM).</li>
+                <li><strong>AWS Amplify</strong> y <strong>Google Cloud:</strong> APIs, funciones sin servidor y almacenamiento.</li>
+                <li>Ventaja: escalan sin que administres servidores.</li>
+              </ul>
+            </div>
+
+            <div class="card wide">
+              <h4>Ejemplo: mostrar una notificación</h4>
+              <div class="code-title"><span>Notificar.kt</span><span>kotlin</span></div>
+<pre><span class="k">val</span> noti = NotificationCompat.Builder(<span class="k">this</span>, <span class="s">"avisos"</span>)
+    .setSmallIcon(R.drawable.ic_campana)
+    .setContentTitle(<span class="s">"Recordatorio"</span>)
+    .setContentText(<span class="s">"Tienes una tarea pendiente"</span>)
+    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+    .setAutoCancel(<span class="k">true</span>)
+    .build()
+NotificationManagerCompat.from(<span class="k">this</span>).notify(1, noti)</pre>
+            </div>
+
+            <details class="card wide syllabus" data-group="servicios">
+              <summary><span>Temario a repasar <span class="count"></span></span></summary>
+              <ul class="checks">
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Definición</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Qué son las tareas en segundo plano en aplicaciones móviles</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Tratamiento de notificaciones en aplicaciones móviles</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Proceso de implementación de: proveedores de contenido, tareas en segundo plano y notificaciones</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Servicios de cómputo en la nube aplicables a la programación de aplicaciones móviles</span></label></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 · LIBRERÍAS Y TOOLKITS -->
+      <article class="topic reveal" id="librerias" data-topic="librerias">
+        <div class="topic-index"><span class="num">06</span></div>
+        <div>
+          <h3>Librerías y toolkits para desarrollo móvil</h3>
+          <p class="intro">Nadie programa todo desde cero: se reutiliza código ya probado. La diferencia está en el alcance: una librería resuelve una tarea concreta y un toolkit aporta un conjunto completo de herramientas y componentes.</p>
+
+          <div class="panel-grid">
+            <div class="card">
+              <h4>Librería</h4>
+              <p>Colección de funciones y clases que <strong>tu código llama</strong> cuando las necesita. Tú controlas el flujo del programa.</p>
+              <p><span class="tag">Retrofit</span><span class="tag">Glide</span><span class="tag">Room</span><span class="tag">Moshi</span></p>
+            </div>
+            <div class="card">
+              <h4>Toolkit</h4>
+              <p>Conjunto de herramientas, componentes de interfaz y reglas que forman la base sobre la que construyes la app completa.</p>
+              <p><span class="tag">Android SDK</span><span class="tag">Jetpack Compose</span><span class="tag">Flutter</span><span class="tag">SwiftUI</span></p>
+            </div>
+
+            <div class="card wide">
+              <h4>Librerías especializadas por tarea</h4>
+              <ul>
+                <li><strong>Red y APIs:</strong> Retrofit, OkHttp, Ktor.</li>
+                <li><strong>Imágenes:</strong> Glide, Coil, Picasso.</li>
+                <li><strong>Datos locales:</strong> Room, DataStore, Realm.</li>
+                <li><strong>Inyección de dependencias:</strong> Hilt, Koin.</li>
+                <li><strong>Pruebas:</strong> JUnit, Espresso, MockK.</li>
+              </ul>
+            </div>
+
+            <div class="card wide">
+              <h4>Diferencias entre toolkits aplicables</h4>
+              <div class="pc">
+                <div class="pro"><b>NATIVOS · ANDROID / iOS</b>Jetpack Compose (Kotlin) y SwiftUI: máximo rendimiento y acceso total al hardware, pero un código por plataforma.</div>
+                <div class="pro"><b>MULTIPLATAFORMA</b>Flutter (Dart), React Native (JavaScript) y Kotlin Multiplatform: una sola base de código para ambas plataformas.</div>
+              </div>
+            </div>
+
+            <details class="card wide syllabus" data-group="librerias">
+              <summary><span>Temario a repasar <span class="count"></span></span></summary>
+              <ul class="checks">
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Qué es una librería y qué es un toolkit</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Librerías de funciones especializadas para aplicaciones móviles</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Diferenciar toolkits aplicables a la programación de aplicaciones móviles</span></label></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7 · DEPURACIÓN Y SEGURIDAD -->
+      <article class="topic reveal" id="seguridad" data-topic="seguridad">
+        <div class="topic-index"><span class="num">07</span></div>
+        <div>
+          <h3>Depuración y seguridad</h3>
+          <p class="intro">Depurar es encontrar, entender y corregir errores del programa. La seguridad busca que la app y los datos del usuario resistan accesos indebidos, filtraciones y manipulación.</p>
+
+          <div class="panel-grid">
+            <div class="card">
+              <h4>Herramientas de depuración</h4>
+              <ul>
+                <li><strong>Logcat:</strong> registro de mensajes y errores en vivo (<code class="inline">Log.d</code>, <code class="inline">Log.e</code>).</li>
+                <li><strong>Depurador:</strong> puntos de interrupción, paso a paso y vigilancia de variables.</li>
+                <li><strong>Layout Inspector:</strong> revisa la jerarquía de la interfaz.</li>
+                <li><strong>Profiler:</strong> mide CPU, memoria, red y batería.</li>
+                <li><strong>App Inspection:</strong> consulta la base de datos de la app en ejecución.</li>
+                <li><strong>ADB:</strong> línea de comandos para conectarse al dispositivo.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Prácticas de seguridad</h4>
+              <ul>
+                <li>Usar siempre <strong>HTTPS</strong> y validar certificados.</li>
+                <li>Guardar claves y tokens en <strong>Android Keystore</strong> o almacenamiento cifrado, nunca en texto plano.</li>
+                <li>Pedir solo los <strong>permisos</strong> estrictamente necesarios.</li>
+                <li>Ofuscar y reducir el código con <strong>R8 / ProGuard</strong>.</li>
+                <li>Validar toda entrada del usuario y de la red.</li>
+              </ul>
+            </div>
+
+            <div class="card wide">
+              <h4>Ejemplo: depurar con Logcat</h4>
+              <div class="code-title"><span>Registro.kt</span><span>kotlin</span></div>
+<pre><span class="k">private const val</span> TAG = <span class="s">"Login"</span>
+
+Log.d(TAG, <span class="s">"Intento de inicio de sesión: usuario=$usuario"</span>)
+<span class="k">try</span> {
+    repositorio.entrar(usuario, clave)
+} <span class="k">catch</span> (e: IOException) {
+    Log.e(TAG, <span class="s">"Fallo de red"</span>, e)   <span class="c">// aparece en rojo en Logcat</span>
+}
+<span class="c">// Nunca registres contraseñas ni tokens.</span></pre>
+            </div>
+
+            <details class="card wide syllabus" data-group="seguridad">
+              <summary><span>Temario a repasar <span class="count"></span></span></summary>
+              <ul class="checks">
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Qué es la depuración y seguridad</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Herramientas de depuración incluidas en el entorno de desarrollo móvil</span></label></li>
+                <li><label><input type="checkbox"><span class="box"></span><span class="txt">Referencias</span></label></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- REFERENCIAS -->
+  <section class="refs" id="referencias">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Referencias</span>
+        <h2>Para profundizar</h2>
+      </div>
+      <ol class="reveal">
+        <li>Android Developers. <em>Documentación oficial de Android</em> (almacenamiento de datos, sensores, multimedia, notificaciones y depuración). <a href="https://developer.android.com/docs" target="_blank" rel="noopener">developer.android.com/docs</a></li>
+        <li>Chacon, S. y Straub, B. <em>Pro Git</em> (edición en español). <a href="https://git-scm.com/book/es/v2" target="_blank" rel="noopener">git-scm.com/book/es/v2</a></li>
+        <li>Kotlin Foundation. <em>Documentación del lenguaje Kotlin</em>. <a href="https://kotlinlang.org/docs/home.html" target="_blank" rel="noopener">kotlinlang.org/docs</a></li>
+        <li>Firebase. <em>Documentación para desarrolladores</em>. <a href="https://firebase.google.com/docs" target="_blank" rel="noopener">firebase.google.com/docs</a></li>
+        <li>MoureDev by Brais Moure. <em>Android Studio: cómo crear una APP (para principiantes)</em>, YouTube. <a href="https://www.youtube.com/watch?v=BQaxPwZWboA" target="_blank" rel="noopener">youtube.com/watch?v=BQaxPwZWboA</a></li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Guía de estudio · Programación móvil</span>
+    <a href="#inicio">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
